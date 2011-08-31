@@ -1,0 +1,196 @@
+<html>
+<head>
+	<!-- these two are not necessary, they are for the layout of this page itself; not transmenus. -->
+	<link rel="stylesheet" type="text/css" href="http://youngpup.net/css/demo.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+	<!-- these two are required for transmenus to function -->
+	<link rel="stylesheet" type="text/css" href="../../transmenu.css">
+	<script language="javascript" src="../../transmenu.js"></script>
+
+	<script language="javascript">
+		function init() {
+			//==========================================================================================
+			// if supported, initialize TransMenus
+			//==========================================================================================
+			// Check isSupported() so that menus aren't accidentally sent to non-supporting browsers.
+			// This is better than server-side checking because it will also catch browsers which would
+			// normally support the menus but have javascript disabled.
+			//
+			// If supported, call initialize() and then hook whatever image rollover code you need to do
+			// to the .onactivate and .ondeactivate events for each menu.
+			//==========================================================================================
+			if (TransMenu.isSupported()) {
+				TransMenu.initialize();
+
+				// hook all the highlight swapping of the main toolbar to menu activation/deactivation
+				// instead of simple rollover to get the effect where the button stays hightlit until
+				// the menu is closed.
+				menu1.onactivate = function() { document.getElementById("liguria").className = "hover"; };
+				menu1.ondeactivate = function() { document.getElementById("liguria").className = ""; };
+
+				menu2.onactivate = function() { document.getElementById("lombardia").className = "hover"; };
+				menu2.ondeactivate = function() { document.getElementById("lombardia").className = ""; };
+
+				menu3.onactivate = function() { document.getElementById("veneto").className = "hover"; };
+				menu3.ondeactivate = function() { document.getElementById("veneto").className = ""; };
+
+				menu4.onactivate = function() { document.getElementById("toscana").className = "hover"; };
+				menu4.ondeactivate = function() { document.getElementById("toscana").className = ""; };
+
+				menu5.onactivate = function() { document.getElementById("lazio").className = "hover"; };
+				menu5.ondeactivate = function() { document.getElementById("lazio").className = ""; };
+
+				document.getElementById("umbria").onmouseover = function() {
+					ms.hideCurrent();
+					this.className = "hover";
+				}
+
+				document.getElementById("umbria").onmouseout = function() { this.className = ""; }
+			}
+		}
+	</script>
+</head>
+
+<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 bgcolor="white" onload="init()">
+	<div id="banner"></div>
+	<div id="content">
+		<h1>TransMenus Demo</h1>
+
+		<div id="wrap">
+			<div id="menu">
+				<a id="liguria" href="#">Liguria</a>
+				<a id="lombardia" href="#">Lombardia</a>
+				<a id="veneto" href="#">Veneto</a>
+				<a id="toscana" href="#">Toscana</a>
+				<a id="umbria" href="#">Umbria</a>
+				<a id="lazio" href="#">Lazio</a>
+			</div>
+
+			<img id="img" src="img/bkgd.jpg" width="660" height="417">
+		</div>
+	</div>
+
+	<script language="javascript">
+	// set up drop downs anywhere in the body of the page. I think the bottom of the page is better.. 
+	// but you can experiment with effect on loadtime.
+	if (TransMenu.isSupported()) {
+
+		//==================================================================================================
+		// create a set of dropdowns
+		//==================================================================================================
+		// the first param should always be down, as it is here
+		//
+		// The second and third param are the top and left offset positions of the menus from their actuators
+		// respectively. To make a menu appear a little to the left and bottom of an actuator, you could use
+		// something like -5, 5
+		//
+		// The last parameter can be .topLeft, .bottomLeft, .topRight, or .bottomRight to inidicate the corner
+		// of the actuator from which to measure the offset positions above. Here we are saying we want the 
+		// menu to appear directly below the bottom left corner of the actuator
+		//==================================================================================================
+		var ms = new TransMenuSet(TransMenu.direction.down, 1, 0, TransMenu.reference.bottomLeft);
+
+		//==================================================================================================
+		// create a dropdown menu
+		//==================================================================================================
+		// the first parameter should be the HTML element which will act actuator for the menu
+		//==================================================================================================
+		var menu1 = ms.addMenu(document.getElementById("liguria"));
+		menu1.addItem("Ventimiglia", "http://youngpup.net/italy/photos/ventimiglia/thumb/102_0261.jpg"); 
+		menu1.addItem("Cinque Terre", ""); // send no URL if nothing should happen onclick
+
+		var submenu0 = menu1.addMenu(menu1.items[1]);
+		submenu0.addItem("Monterosso", "http://youngpup.net/italy/photos/cinqueterre/104_0458.jpg");
+		submenu0.addItem("Manorola", "http://youngpup.net/italy/photos/cinqueterre/thumb/104_0474.jpg");
+		submenu0.addItem("Corniglia", "http://youngpup.net/italy/photos/cinqueterre/104_0472.jpg");
+		submenu0.addItem("Rio Maggiore", "http://youngpup.net/italy/photos/cinqueterre/105_0522.jpg");
+		submenu0.addItem("Vernazza", "");
+		submenu0.addItem("Apartment", "");
+		submenu0.addItem("Via del Amore", "");
+		submenu0.addItem("Rocky beach", "");
+		submenu0.addItem("Swimming hole", "");
+
+    var submenu00 = submenu0.addMenu(submenu0.items[0]);
+    submenu00.addItem("foo");
+    submenu00.addItem("bar");
+		//==================================================================================================
+
+		//==================================================================================================
+		var menu2 = ms.addMenu(document.getElementById("lombardia"));
+		menu2.addItem("Milano", "");
+
+		var submenu1 = menu2.addMenu(menu2.items[0]);
+		submenu1.addItem("Galeria", "");
+		submenu1.addItem("Duomo", "");
+		submenu1.addItem("Castle", "");
+		//==================================================================================================
+
+		//==================================================================================================
+		var menu3 = ms.addMenu(document.getElementById("veneto"));
+		menu3.addItem("Verona");
+		menu3.addItem("Venezia");
+
+		var submenu2 = menu3.addMenu(menu3.items[0]);
+		var submenu3 = menu3.addMenu(menu3.items[1]);
+
+		submenu2.addItem("Hostel", "");
+		submenu2.addItem("Piazza Erba", "");
+		submenu2.addItem("Castle", "");
+		submenu2.addItem("Arena", "");
+
+		submenu3.addItem("Piazza San Marco", "");
+		submenu3.addItem("Lagoon", "");
+		submenu3.addItem("Hotel", "");
+		submenu3.addItem("Chichetti", "");
+		submenu3.addItem("Doge's Palace", "");
+		//==================================================================================================
+
+		//==================================================================================================
+		var menu4 = ms.addMenu(document.getElementById("toscana"));
+		menu4.addItem("Florence", "");
+		menu4.addItem("Sienna", "");
+		menu4.addItem("Montelicino", "");
+		menu4.addItem("Orvieto", "");
+
+		var submenu4 = menu4.addMenu(menu4.items[0]);
+		var submenu5 = menu4.addMenu(menu4.items[1]);
+
+		submenu4.addItem("Hostile", "");
+		submenu4.addItem("Duomo", "");
+		submenu4.addItem("Pitti Palace", "");
+		submenu4.addItem("Ponte Vecchio", "");
+
+		submenu5.addItem("Il Campo", "");
+		submenu5.addItem("Roman Center", "");
+		submenu5.addItem("Duomo", "");
+		//==================================================================================================
+
+		//==================================================================================================
+		var menu5 = ms.addMenu(document.getElementById("lazio"));
+		menu5.addItem("Roma", "");
+
+		var submenu6 = menu5.addMenu(menu5.items[0]);
+		submenu6.addItem("Appian Way", "");
+		submenu6.addItem("Trastevere", "");
+		submenu6.addItem("Pantheon", "");
+		submenu6.addItem("Palantine Hill", "");
+		submenu6.addItem("Colloseum", "");
+		submenu6.addItem("Forum", "");
+		submenu6.addItem("Trevi Fountain", "");
+		submenu6.addItem("St. Peter's", "");
+		submenu6.addItem("Vatican Museum", "");
+		//==================================================================================================
+
+		//==================================================================================================
+		// write drop downs into page
+		//==================================================================================================
+		// this method writes all the HTML for the menus into the page with document.write(). It must be
+		// called within the body of the HTML page.
+		//==================================================================================================
+		TransMenu.renderAll();
+	}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+	<!-- these two are not necessary, they are for the layout of this page itself; not transmenus. -->
+	<link rel="stylesheet" type="text/css" href="http://youngpup.net/css/demo.css">
+  <title>TransMenus - IE Memory Demo</title>
+</head>
+
+<body>
+	<div id="banner"></div>
+	<div id="content">
+		<h1>TransMenus IE Memory Demo</h1>
+
+    <p>This demo shows the fix for the memory leak problem which has <a href="http://youngpup.net/2004/transmenus/comments" target="_blank">plagued</a> TransMenus on Windows/IE for quite some time.</p>
+
+    <p>The problem would occur when the page was refreshed or navigated to a different page. Because of circular references between DOM elements and JavaScript that IE could not deal with, memory would not be released appropriately.</p>
+    
+    <p>To demonstrate the problem, I've set up two pages that redirect to each other in a loop. The first has the menus and the second doesn't. To verify that memory is not being leaked, open Task Manager and watch the memory consuption of iexplore.exe.</p>
+
+    <p><strong><a href="index1.html" target="_blank">Launch Demo</a></strong></p>
+  </div>
+</body>
+
+</html>
