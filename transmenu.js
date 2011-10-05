@@ -6,6 +6,7 @@
  * Copyright Aaron Boodman (www.youngpup.net)
  * =================================================================================================
  * updates:
+ * 10.05.11 remove sniffing for browsers that have virtually no market share.
  * 04.19.04 fixed cascade problem with menus nested greater than two levels.
  * 12.23.03 added hideCurrent for menu actuators with no menus. renamed to TransMenu.
  * 04.18.03	fixed render bug in IE 5.0 Mac by removing that browser from compatibility table ;)
@@ -46,24 +47,9 @@ TransMenu._maxZ = 100;
 //==================================================================================================
 // Static methods
 //==================================================================================================
-// supporting win ie5+, mac ie5.1+ and gecko >= mozilla 1.0
+// supporting modern browsers
 TransMenu.isSupported = function() {
-        var ua = navigator.userAgent.toLowerCase();
-		var pf = navigator.platform.toLowerCase();
-        var an = navigator.appName;
-        var r = false;
-
-        if (ua.indexOf("gecko") > -1 && navigator.productSub >= 20020605) r = true; // gecko >= moz 1.0
-        else if (an == "Microsoft Internet Explorer") {
-                if (document.getElementById) { // ie5.1+ mac,win
-                        if (pf.indexOf("mac") == 0) {
-							r = /msie (\d(.\d*)?)/.test(ua) && Number(RegExp.$1) >= 5.1;
-						}
-						else r = true;
-                }
-        }
-
-        return r;
+        return true;
 }
 
 // call this in onload once menus have been created
