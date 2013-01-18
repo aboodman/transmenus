@@ -1,8 +1,25 @@
+body {
+    font-family:georgia;
+    margin:2em 2.5em;
+    line-height: 1.5em;
+    }
+a {
+    cursor:pointer;
+    }
 #wrap {
     border:1px solid black;
+    float:right;
     width:662px;
     }
+.item {
+    font-family:arial;
+    font-size:12px;
+    cursor:default;
+    }
 #menu {
+    font-size:12px;
+    font-family:arial;
+    line-height:1.25em;
     background:#D6E6FF;
     border-bottom:1px solid white;
     padding:4px 0;

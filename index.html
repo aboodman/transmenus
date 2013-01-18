@@ -1,12 +1,11 @@
 <html>
 <head>
-	<!-- these two are not necessary, they are for the layout of this page itself; not transmenus. -->
-	<link rel="stylesheet" type="text/css" href="http://youngpup.net/css/demo.css">
+	<!-- this is for the layout of this page itself; not transmenus. -->
 	<link rel="stylesheet" type="text/css" href="styles.css">
 
 	<!-- these two are required for transmenus to function -->
-	<link rel="stylesheet" type="text/css" href="../../transmenu.css">
-	<script language="javascript" src="../../transmenu.js"></script>
+	<link rel="stylesheet" type="text/css" href="transmenu.css">
+	<script language="javascript" src="transmenu.js"></script>
 
 	<script language="javascript">
 		function init() {
@@ -52,11 +51,9 @@
 	</script>
 </head>
 
-<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 bgcolor="white" onload="init()">
+<body bgcolor="white" onload="init()">
 	<div id="banner"></div>
 	<div id="content">
-		<h1>TransMenus Demo</h1>
-
 		<div id="wrap">
 			<div id="menu">
 				<a id="liguria" href="#">Liguria</a>
@@ -68,6 +65,14 @@
 			</div>
 
 			<img id="img" src="img/bkgd.jpg" width="660" height="417">
+		</div>
+
+		<div id="left">
+		<p><b>TransMenus</b><br>March, 2003
+                <p>This is a multi-level menu system featuring transparency and animation. It was
+                originally written for use on <a href="http://www.mediatemple.net">mediatemple.net</a>, but later
+                generalized somewhat.
+                <p><a href="https://github.com/aboodman/transmenus">Source Code</a>
 		</div>
 	</div>
 

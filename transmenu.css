@@ -25,9 +25,6 @@
 /* each TR.item is one menu item */
 .transMenu .item {
     color:#336;
-    font-size:10px;
-    font-family:sans-serif;
-    text-decoration:none;
 	}
 
 /* this DIV is the semi-transparent white background of each menu. the -moz-opacity is a proprietary way to get transparency in mozilla, the filter is for IE/windows 5.0+. */
