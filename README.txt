@@ -5,4 +5,4 @@ This is a multi-level menu system featuring transparency and animation. It was
 originally written for use on mediatemple.net, but later generalized somewhat.
 See the photos demo for a usage example.
 
-Demo: http://aboodman.github.com/transmenus/
+Demo: http://aboodman.github.io/transmenus/
